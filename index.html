@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CheatxEsp - Free Fire Sensitivity</title>
+  <link rel="icon" href="https://i.imgur.com/R8ujokv.jpeg" type="image/png">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400&display=swap');
+    @font-face {
+      font-family: 'thunder';
+      src: url('./assets/thunder.woff') format('woff2'),
+           url('./assets/thunder.woff2') format('woff');
+    }
+
+    body {
+      user-select: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background: #000000;
+      overflow: hidden;
+      color: #ffffff;
+    }
+
+    h1, h2 {
+      font-family: 'thunder', sans-serif;
+      font-weight: 140;
+      margin: 10px;
+      text-align: center;
+      opacity: 0;
+      animation: fadeIn 2s ease forwards;
+    }
+
+    .large-title {
+      font-size: 65px;
+    }
+
+    .page {
+      display: none;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .page.active {
+      display: block;
+      opacity: 1;
+    }
+
+    .shadow__btn {
+      padding: 10px 20px;
+      border: none;
+      margin: 1rem;
+      font-size: 18px;
+      color: #000;
+      border-radius: 7px;
+      font-family: 'thunder', sans-serif;
+      font-weight: 700;
+      text-transform: uppercase;
+      transition: 0.5s;
+      transition-property: box-shadow;
+      background: rgb(255, 255, 255);
+      box-shadow: 0 0 25px rgb(255, 255, 255);
+    }
+
+    .shadow__btn:hover {
+      box-shadow: 0 0 5px rgb(255, 192, 203),
+                  0 0 25px rgb(255, 192, 203),
+                  0 0 50px rgb(255, 192, 203),
+                  0 0 100px rgb(255, 192, 203);
+    }
+
+    .contact-buttons a {
+      display: inline-block;
+      margin: 10px;
+      padding: 10px 20px;
+      color: #fff;
+      background: #333;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+
+    .contact-buttons a:hover {
+      background: #444;
+      transform: scale(1.05);
+    }
+
+    .footer {
+      font-size: 14px;
+      margin-top: 2rem;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Home Page -->
+  <div id="home" class="page active">
+    <h1 class="large-title">CheatxEsp</h1>
+    <h2>Welcome to Free Fire Sensitivity Settings</h2>
+    <button class="shadow__btn" onclick="navigateTo('previews')">Go to Previews</button>
+    <button class="shadow__btn" onclick="navigateTo('boost')">Go to Boost</button>
+  </div>
+
+  <!-- Previews Page -->
+  <div id="previews" class="page">
+    <h2>Video Previews</h2>
+    <video controls width="320" src="https://your-video-url1.mp4"></video>
+    <video controls width="320" src="https://your-video-url2.mp4"></video>
+    <video controls width="320" src="https://your-video-url3.mp4"></video>
+    <br>
+    <button class="shadow__btn" onclick="navigateTo('home')">Back to Home</button>
+  </div>
+
+  <!-- Boost Page -->
+  <div id="boost" class="page">
+    <h2>Free Fire Sensitivity Boost</h2>
+    <button class="shadow__btn" onclick="redirectTo('https://example.com/boost-v1')">Boost v1</button>
+    <button class="shadow__btn" onclick="redirectTo('https://example.com/boost-v2')">Boost v2</button>
+    <div class="contact-buttons">
+      <a href="https://wa.me/917902624272" target="_blank">WhatsApp</a>
+      <a href="https://discord.gg/bZmU6Z6r" target="_blank">Discord</a>
+      <a href="https://instagram.com/cheatxesp" target="_blank">Instagram</a>
+    </div>
+    <button class="shadow__btn" onclick="navigateTo('home')">Back to Home</button>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">© EypzxCheats</div>
+
+  <script>
+    // Page navigation function
+    function navigateTo(pageId) {
+      const activePage = document.querySelector('.page.active');
+      const targetPage = document.getElementById(pageId);
+
+      if (activePage) {
+        activePage.classList.remove('active');
+        setTimeout(() => {
+          activePage.style.display = 'none';
+          targetPage.style.display = 'block';
+          setTimeout(() => targetPage.classList.add('active'), 50);
+        }, 500);
+      }
+    }
+
+    // URL redirection function
+    function redirectTo(url) {
+      window.location.href = url;
+    }
+  </script>
+</body>
+</html>
